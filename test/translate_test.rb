@@ -34,4 +34,20 @@ class TranslateTest < MiniTest::Test
     assert_equal expected, actual
   end
 
+  def test_can_translate_uppercase_english_to_morse
+    translator = Translate.new
+    actual = translator.eng_to_morse("Hello World")
+    expected = "......-...-..--- .-----.-..-..-.."
+
+    assert_equal expected, actual
+  end
+
+  def test_can_translate_numbers_to_morse
+    translator = Translate.new
+    actual = translator.eng_to_morse("There are 3 ships")
+    expected = "-......-.. .-.-.. ...-- ..........--...."
+
+    assert_equal expected, actual
+  end
+
 end
