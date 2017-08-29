@@ -22,7 +22,16 @@ class TranslateTest < MiniTest::Test
     actual = translator.eng_to_morse("hello world")
     expected = "......-...-..--- .-----.-..-..-.."
 
-    assert_equal actual, expected
+    assert_equal expected, actual
+  end
+
+  def test_eng_to_morse_translates_a_quote
+    translator = Translate.new
+    quote = "three people can keep a secret if two are dead"
+    actual = translator.eng_to_morse(quote)
+    expected = "-.....-... .--..---.--..-... -.-..--. -.-...--. .- ....-.-..-..- ....-. -.----- .-.-.. -....--.."
+
+    assert_equal expected, actual
   end
 
 end
